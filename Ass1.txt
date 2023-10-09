@@ -1,0 +1,250 @@
+Ques #1 Print Hello World
+
+using System;
+
+namespace HelloWorld
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      Console.WriteLine("Hello World!");
+      //output prints hello world
+    }
+  }
+}
+
+
+Ques #2 A program that asks user for name and greets them with hello (name).
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // This will ask user their name
+        Console.Write("Please enter your name:");
+        
+        //This will read the name from the user input
+        string name = Console.ReadLine();
+        
+        // This will Greet the user with Hello + their name
+        Console.WriteLine("Hello, " + name + " Welcome");
+    
+    }
+}
+ 
+
+
+3. Write a program that takes two numbers as input and prints their sum
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter the first number: ");
+        int number1 = int.Parse(Console.ReadLine());
+// int.Parse is used to convert the string to integer
+        Console.Write("Enter the second number: ");
+        int number2 = int.Parse(Console.ReadLine());
+
+        int sum = number1 + number2;
+
+        Console.WriteLine("The sum of " + number1 + " and " + number2 + " is: " + sum);
+    }
+}
+
+ 4.Write a program that takes a number as input and prints its square
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a number: ");
+
+        // convert num to int
+        int number = int.Parse(Console.ReadLine());
+
+        // Calculate square of the num
+        int square = number * number;
+
+        // Print the square
+        Console.WriteLine("The square of " + number + " is: " + square);
+
+    }
+}
+
+
+
+5. Write a program that prints all even numbers from 1 to 100.
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Even numbers 1 to 100:");
+        
+        // apply for loop to count numbers from 1 to 100
+        for (int i = 1; i <= 100; i++)
+        {
+            // Checking if the number is even or not
+            if (i % 2 == 0)
+            {
+                // Printing even number
+                Console.WriteLine(i);
+            }
+        }
+
+    }
+}
+
+
+
+6. Write a program that asks the user for a number n and prints the sum of the numbers
+1 to n.
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a number (n): ");
+
+        // Read the number & convert it to int
+        int n = int.Parse(Console.ReadLine());
+
+        // Calculate the sum of numbers from 1 to n
+        int sum = 0;
+        for (int i = 1; i <= n; i++)
+        {
+            sum += i;
+        }
+
+        // Print sum
+        Console.WriteLine("The sum of numbers from 1 to " + n + " is: " + sum);
+
+    }
+
+
+7. Write a program that prints a multiplication table for numbers up to 12.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Loop through numbers from 1 to 12
+        for (int i = 1; i <= 12; i++)
+        {
+            // multiplication table for number now
+            for (int m = 1; m <= 12; m++)
+            {
+                int result = i * m;
+                Console.Write(result + new string(' ', 5 - result.ToString().Length));
+            }
+            Console.WriteLine(); 
+        }
+
+    }
+}
+
+
+
+8. Write a program that prints all prime numbers up to n (where n is user input).
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a number (n): ");
+        int n = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Prime numbers up to " + n + ":");
+
+        for (int i = 2; i <= n; i++)
+        {
+            bool isPrime = true;
+            for (int j = 2; j <= Math.Sqrt(i); j++)
+            {
+                if (i % j == 0)
+                {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+    }
+}
+
+
+9. Write a program that computes the factorial of a number (n!).
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a number (num): ");
+        int num = int.Parse(Console.ReadLine());
+
+        // Calculate the factorial
+        long factorial = 1;
+        for (int i = 1; i <= num; i++)
+        {
+            factorial *= i;
+        }
+
+        // Print the factorial
+        Console.WriteLine("The factorial of " + num + " is: " + factorial);
+
+    }
+}
+
+
+
+10. Write a program that prints the Fibonacci sequence up to n terms (where n is user input).
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter the number of terms in Fibonacci sequence (num): ");
+        int num = int.Parse(Console.ReadLine());
+
+        int firstTerm = 0, secondTerm = 1;
+        Console.WriteLine("Fibonacci sequence up to " + num + " terms:");
+
+        for (int i = 1; i <= num; i++)
+        {
+            Console.Write(firstTerm + " ");
+            int nextTerm = firstTerm + secondTerm;
+            firstTerm = secondTerm;
+            secondTerm = nextTerm;
+        }
+
+    }
+
