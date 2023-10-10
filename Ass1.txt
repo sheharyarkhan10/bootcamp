@@ -248,3 +248,395 @@ class Program
 
     }
 
+
+Ques 11 ;  Write a program that searches for number n in an array of 5 (where n is user input).
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] numbers = new int[5] { 20, 30, 40, 50, 60 };
+
+            Console.WriteLine("Write a Number :  ");
+            int searchNumber = Convert.ToInt32(Console.ReadLine());
+            //convert string to a 32 bit signed integer
+
+            bool found = false;
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                if (numbers [i] == searchNumber)
+                {
+                    found = true;
+                    Console.WriteLine($"Number {searchNumber} found at index {i}");
+                    break;
+                }
+            }
+
+            // If the number is not found
+            if (!found)
+            {
+                Console.WriteLine($"Number {searchNumber} not found in the array.");
+                
+            }
+        }
+            }
+
+            
+
+        }
+    
+
+12. Write a program that checks if a string is a palindrome.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        
+        Console.WriteLine("Check for the Palindrome!");
+
+        // Ask for user input
+        Console.Write("Please enter any word:  ");
+        string userInput = Console.ReadLine();
+
+        // Check 
+        bool isPalindrome = IsPalindrome(userInput);
+
+        if (isPalindrome)
+        {
+            Console.WriteLine("Yes it is Palindrome!");
+        }
+        else
+        {
+            Console.WriteLine("No it's not a Palindrome.");
+        }
+
+
+        Console.WriteLine(" ");
+        Console.ReadKey();
+
+    }
+
+    // Function to check if a string is palindrome
+    static bool IsPalindrome(string input)
+    {
+        //convert the string to lowercase
+        string cleanedInput = input.Replace(" ", "").ToLower();
+
+        // Compare characters
+        for (int i = 0; i < cleanedInput.Length / 2; i++)
+        {
+            if (cleanedInput[i] != cleanedInput[cleanedInput.Length - 1 - i])
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+
+
+13. Write a program that finds the largest and smallest number in an unsorted array of integers.
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+       
+        int[] numbers = { 33, 22, 34, 73, 91, 3, 36 };
+
+        // Finding largest and smallest numbers 
+        int smallest = numbers[0];
+        int largest = numbers[0];
+
+        foreach (int number in numbers)
+        {
+            if (number < smallest)
+            {
+                smallest = number;
+            }
+
+            if (number > largest)
+            {
+                largest = number;
+            }
+        }
+
+        // Display result
+        Console.WriteLine($"The smallest number is: {smallest}");
+        Console.WriteLine($"The largest number is: {largest}");
+
+        
+        Console.WriteLine(" ");
+        Console.ReadKey();
+    }
+}
+
+
+
+
+14. Write a program that prints a right angle triangle using the "*" Icharacter, with the height based on user input. (using loops and following is only sample input)
+*
+**
+***
+****
+*****
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+      
+        Console.WriteLine("This is Right-Angle Triangle Printer!");
+        Console.Write("Please enter the height of the triangle: ");
+
+        string userInput = Console.ReadLine();
+
+        // Convert string to integer
+        int height = Convert.ToInt32(userInput);
+
+        for (int i = 1; i <= height; i++)
+        {
+            // Inner loop 
+            for (int j = 1; j <= i; j++)
+            {
+                // Print an asterisk
+                Console.Write("*");
+            }
+
+            // Move to the next line
+            Console.WriteLine();
+        }
+
+
+        Console.WriteLine(" ");
+        Console.ReadKey();
+    }
+}
+
+
+15. Write a program that prints the following pattern  upto n rows  [where ni user input].
+
+        *
+      ***
+     *****
+   *******
+ *********
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+    
+        // Asking for the number of rows
+        Console.Write("Enter the number of rows for the pyramid: ");
+
+        // Read user input
+        string userInput = Console.ReadLine();
+
+        // Convert string to integer
+        int rows = Convert.ToInt32(userInput);
+
+        for (int i = 1; i <= rows; i++)
+        {
+            // Print spaces for alignment
+            for (int j = 1; j <= rows - i; j++)
+            {
+                Console.Write(" ");
+            }
+
+            for (int k = 1; k <= 2 * i - 1; k++)
+            {
+                Console.Write("*");
+            }
+
+            // Move to the next line after each row
+            Console.WriteLine();
+        }
+        Console.WriteLine(" ");
+        Console.ReadKey();
+    }
+}
+
+
+
+16. Write a program that takes a string as input and outputs the reverse of that string. For example, if the input is "hello," the output should be "olleh." (sum of all divisors excluding itself should be equal to that number e.g; 1+2+3 = 6) 19. Write a program that prints the following pattern up to n rows (where n is user).
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a word  ");
+        string userInput = Console.ReadLine();
+
+        // Call the function to reverse the string
+        string reversedString = ReverseString(userInput);
+        Console.WriteLine("Reversed string: " + reversedString);
+
+        Console.WriteLine("");
+        Console.ReadKey();
+    }
+
+    // Function 
+    static string ReverseString(string input)
+    {
+        char[] charArray = input.ToCharArray(); // Convert string to array
+        Array.Reverse(charArray); // Reverse the array
+        return new string(charArray); // Convert the array back to a string
+    }
+}
+
+
+
+17. Write a program that sorts an array. (take input as random numbers).
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter size of the array: ");
+        int size = Convert.ToInt32(Console.ReadLine());
+
+        // Generate random numbers and store them in an array
+        int[] numbers = new int[size];
+        Random random = new Random();
+        for (int i = 0; i < size; i++)
+        {
+            numbers[i] = random.Next(1, 50); 
+        }
+
+        for (int i = 0; i < size - 1; i++)
+        {
+            for (int j = 0; j < size - i - 1; j++)
+            {
+                if (numbers[j] > numbers[j + 1])
+                {
+                    // Swap numbers
+                    int temp = numbers[j];
+                    numbers[j] = numbers[j + 1];
+                    numbers[j + 1] = temp;
+                }
+            }
+        }
+
+        Console.WriteLine("Sorted Array:");
+        foreach (int number in numbers)
+        {
+            Console.Write(number + " ");
+        }
+        Console.WriteLine("");
+        Console.ReadKey();
+    }
+}
+
+
+
+18. Write a program that checks if a given number is a perfect number.
+
+input).
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a number: ");
+        int number = Convert.ToInt32(Console.ReadLine());
+
+        // Call the function 
+        bool isPerfect = IsPerfectNumber(number); 
+        if (isPerfect)
+        {
+            Console.WriteLine(number + " is a perfect number.");
+        }
+        else
+        {
+            Console.WriteLine(number + " is not a perfect number.");
+        }
+     
+        Console.WriteLine(" ");
+        Console.ReadKey();
+    }
+
+    // Function
+    static bool IsPerfectNumber(int num)
+    {
+        int sum = 0;
+        for (int i = 1; i < num; i++)
+        {
+            if (num % i == 0)
+            {
+                sum += i;
+            }
+        }
+        return sum == num;
+    }
+}
+
+
+
+19. Write a program that prints the following pattern up to n rows (where n is user
+
+1
+12
+123
+1234
+123...n
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        
+        Console.Write("Enter the number of rows: ");
+        int rows = Convert.ToInt32(Console.ReadLine());
+
+        for (int i = 1; i <= rows; i++)
+        {
+            for (int j = 1; j <= i; j++)
+            {
+                Console.Write(j); // Print current number
+            }
+            Console.WriteLine();
+        }
+
+        Console.WriteLine(" ");
+        Console.ReadKey();
+    }
+}
+
+
+
+20. Write a program that finds the longest common subsequence of two given strings. A subsequence is a sequence that appears in the same relative order but not necessarily contiguous. For example, for the input strings "ABCDGH" and "AEDFHR," the longest common subsequence is "ADH."
