@@ -1,0 +1,39 @@
+--Task 1
+
+CREATE DATABASE [5082_DB];
+GO
+
+USE [5082_DB];
+GO
+
+--Task 2 
+
+CREATE TABLE Students (
+ID INT PRIMARY KEY,
+FirstName VARCHAR (50),
+LastName VARCHAR (50),
+Age INT,
+COURSEID int,
+Foreign key (COURSEID));
+
+CREATE TABLE Courses (
+CourseID INT PRIMARY KEY,
+CourseName VARCHAR (50),
+);
+
+
+--TASK 3
+INSERT INTO Students (ID, FirstName, LastName, Age, COURSEID)
+VALUES (1, 35, 'Muhammad', 'Sheharyar' , 23, 322), 
+       (2, 40, 'Arslam', 'Munir' , 25, 322),
+	   (3, 46, 'Syed', 'Fawad' , 22, 323),
+	   (4, 01, 'Muhammad', 'Hamza' , 23, 323),
+	   (5, 94, 'Muhammad', 'Abdullah' , 23, 327),
+	   (6, 13, 'Hafiz', 'Zain' , 23, 325),
+	   (7, 34, 'Minahil', 'Idrees' , 21, 326),
+	   (8, 11, 'Talha', 'Rabbani' , 22, 329),
+	   (9, 37, 'Muhammad', 'Wasim' , 24, 342),
+	   (10, 20, 'Munam', 'Elahi' , 23, 392) 
+	   
+	         
+GO
