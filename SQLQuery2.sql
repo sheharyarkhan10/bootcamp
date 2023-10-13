@@ -9,7 +9,7 @@ GO
 --Task 2 
 
 CREATE TABLE Students (
-ID INT PRIMARY KEY,
+ID INT IDENTITY (1,1) PRIMARY KEY,
 FirstName VARCHAR (50),
 LastName VARCHAR (50),
 Age INT,
@@ -77,8 +77,54 @@ GO
 SELECT AVG(Age) FROM Students;
 GO
 
+--Task 7
 
---TASK 7
+CREATE PROCEDURE AddStudent
+    
+    @FirstName VARCHAR(50),
+	@LastName VARCHAR(50),
+    @Age INT,
+    @CourseID INT
+AS
+BEGIN
+    INSERT INTO Students (FirstName,LastName, Age, CourseID)
+    VALUES ( @FirstName,@LastName, @Age, @CourseID);
+END;
+GO
+
+
+CREATE PROCEDURE StudentsAge
+    @ID INT,
+    @NewAge INT
+AS
+BEGIN
+    UPDATE Students
+    SET Age = @NewAge
+    WHERE ID = @ID;
+END;
+GO
+
+
+CREATE PROCEDURE DeleteStudents
+    @ID INT
+AS
+BEGIN
+    DELETE FROM Students
+    WHERE ID =@ID;
+END;
+GO
+
+
+CREATE PROCEDURE GetAllStudents
+AS
+BEGIN
+    SELECT * FROM Students;
+END;
+GO
+
+
+
+--TASK 9
 
 SELECT FirstName, LastName
 FROM Students
@@ -105,3 +151,4 @@ GO
 
 SELECT TOP 1 * FROM Students
 WHERE Age > AVG(Age) ; 
+SELECT *FROM STUDENTS;
